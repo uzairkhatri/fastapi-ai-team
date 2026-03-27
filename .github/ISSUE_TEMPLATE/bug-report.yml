@@ -1,0 +1,35 @@
+name: Bug Report
+description: An agent produced incorrect, broken, or inconsistent output
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: agent
+    attributes:
+      label: Which agent?
+      placeholder: "e.g. db-engineer, qa-engineer"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-you-asked
+    attributes:
+      label: What did you ask it to do?
+      placeholder: "e.g. /orchestrate Add a comments endpoint"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What went wrong?
+      description: What did the agent produce that was incorrect or broken?
+    validations:
+      required: true
+
+  - type: textarea
+    id: project-structure
+    attributes:
+      label: Your project structure (optional)
+      description: Paste the relevant parts of your folder layout if it differs from the expected structure
+      render: shell

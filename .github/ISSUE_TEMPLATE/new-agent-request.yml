@@ -1,0 +1,42 @@
+name: New Agent Request
+description: Request a new specialized agent for the FastAPI AI Team
+title: "[agent request] "
+labels: ["new-agent"]
+body:
+  - type: input
+    id: agent-name
+    attributes:
+      label: Agent name
+      description: What would you call this agent? (e.g. celery-engineer, websocket-engineer)
+      placeholder: "e.g. celery-engineer"
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-owns
+    attributes:
+      label: What does it own?
+      description: What files, patterns, or concerns does this agent exclusively handle?
+      placeholder: "e.g. Celery task definitions, beat scheduler config, task retry logic"
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-rules
+    attributes:
+      label: What are its hard rules?
+      description: What must it always do? What must it never do? The best agents have clear constraints.
+      placeholder: |
+        Always: register tasks in celery.py, use shared_task decorator
+        Never: put business logic inside tasks — call service functions instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Real use case
+      description: What's the actual thing you'd type to trigger this agent?
+      placeholder: "e.g. Use the celery-engineer to add a background task that sends a welcome email on user registration"
+    validations:
+      required: true
