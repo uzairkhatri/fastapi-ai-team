@@ -1,25 +1,56 @@
 <div align="center">
 
-# FastAPI AI Team
+```
+███████╗ █████╗ ███████╗████████╗ █████╗ ██████╗ ██╗      █████╗ ██╗
+██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██║     ██╔══██╗██║
+█████╗  ███████║███████╗   ██║   ███████║██████╔╝██║     ███████║██║
+██╔══╝  ██╔══██║╚════██║   ██║   ██╔══██║██╔═══╝ ██║     ██╔══██║██║
+██║     ██║  ██║███████║   ██║   ██║  ██║██║     ██║     ██║  ██║██║
+╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝
 
-### 11 specialized AI agents. 7 slash commands. One sentence to a production-ready PR.
+          █████╗ ██╗    ████████╗███████╗ █████╗ ███╗   ███╗
+         ██╔══██╗██║    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+         ███████║██║       ██║   █████╗  ███████║██╔████╔██║
+         ██╔══██║██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
+         ██║  ██║██║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+         ╚═╝  ╚═╝╚═╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
+```
+
+### Your AI-powered FastAPI engineering team — inside Claude Code and Cursor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-5C4EE5)](https://claude.ai/code)
-[![Cursor](https://img.shields.io/badge/Cursor-supported-black)](https://cursor.sh)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-5C4EE5?logo=anthropic)](https://claude.ai/code)
+[![Cursor](https://img.shields.io/badge/Cursor-supported-black?logo=cursor)](https://cursor.sh)
 [![Agents](https://img.shields.io/badge/Agents-11-orange)](#the-team)
 [![Skills](https://img.shields.io/badge/Skills-7-blue)](#skills)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/uzairkhatri/fastapi-ai-team/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/uzairkhatri/fastapi-ai-team/issues/new?template=new-agent-request.yml)
 
 </div>
 
 ---
 
-Most AI tools write code. This one runs a team.
+<div align="center">
 
-Drop it into any FastAPI project. Each agent has a defined role, strict rules, and a clear handoff protocol. The orchestrator reads your codebase, plans the chain, and delegates — you get back a PR with working, tested, production-disciplined code.
+```
+You type one sentence.
 
-No more writing the same router → schema → service → model → migration → tests → PR loop for every feature.
+    /orchestrate Add a blog posts endpoint where users can create and list posts
+
+The team takes over.
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                                                                 │
+  │   orchestrator  ──▶  backend-engineer  ──▶  db-engineer        │
+  │                                                  │              │
+  │   pr-creator  ◀──  qa-engineer  ◀───────────────┘              │
+  │       │                                                         │
+  │       ▼                                                         │
+  │   PR opened. Endpoint + migration + tests. Ready to review.     │
+  │                                                                 │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+</div>
 
 ---
 
@@ -35,13 +66,6 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/main/scripts/install.sh) --cursor
 ```
 
-**Manual**
-```bash
-git clone https://github.com/uzairkhatri/fastapi-ai-team /tmp/fastapi-ai-team
-cp -r /tmp/fastapi-ai-team/.claude/agents/* .claude/agents/
-cp -r /tmp/fastapi-ai-team/.claude/skills/* .claude/skills/
-```
-
 ---
 
 ## See it run
@@ -55,73 +79,88 @@ cp -r /tmp/fastapi-ai-team/.claude/skills/* .claude/skills/
 [orchestrator]        found: routers, services, models, schemas, tests
 [orchestrator]        plan: backend-engineer → db-engineer → qa-engineer → pr-creator
 
-[backend-engineer]    reading app/routers/posts.py for patterns...
-[backend-engineer]    created app/schemas/comment.py        CommentCreate, CommentResponse
-[backend-engineer]    created app/services/comment_service.py  create_comment, list_comments
-[backend-engineer]    created app/routers/comments.py       POST /posts/{id}/comments, GET /posts/{id}/comments
-[backend-engineer]    updated app/main.py                   router registered
+[backend-engineer]    reading app/routers/posts.py for existing patterns...
+[backend-engineer]    created app/schemas/comment.py
+[backend-engineer]    created app/services/comment_service.py
+[backend-engineer]    created app/routers/comments.py
+[backend-engineer]    updated app/main.py
 
-[db-engineer]         created app/models/comment.py         Comment, FK → posts (CASCADE), FK → users (CASCADE)
-[db-engineer]         ran alembic revision --autogenerate -m "add comments table"
+[db-engineer]         created app/models/comment.py    FK → posts (CASCADE), FK → users (CASCADE)
+[db-engineer]         alembic revision --autogenerate -m "add comments table" ✓
 
 [qa-engineer]         created tests/test_comments.py
 [qa-engineer]         pytest tests/test_comments.py -v
-[qa-engineer]         test_create_comment_returns_201 PASSED
-[qa-engineer]         test_create_comment_unauthenticated_returns_401 PASSED
-[qa-engineer]         test_create_comment_post_not_found_returns_404 PASSED
-[qa-engineer]         test_list_comments_returns_200 PASSED
-[qa-engineer]         4 passed in 0.09s ✓
+[qa-engineer]         ✓ test_create_comment_returns_201
+[qa-engineer]         ✓ test_create_comment_unauthenticated_returns_401
+[qa-engineer]         ✓ test_create_comment_post_not_found_returns_404
+[qa-engineer]         ✓ test_list_comments_returns_200
+[qa-engineer]         4 passed in 0.09s
 
-[pr-creator]          branch: feat/comments-endpoint
-[pr-creator]          PR opened → github.com/you/your-project/pull/17
+[pr-creator]          feat/comments-endpoint
+[pr-creator]          PR opened → github.com/you/your-project/pull/17 ✓
 ```
 
 ---
 
 ## The team
 
-| Agent | Owns | Never |
-|---|---|---|
-| **orchestrator** | Reads codebase, plans chain, delegates | Writes code |
-| **backend-engineer** | Routes, Pydantic schemas, service logic | Puts logic in routers |
-| **db-engineer** | SQLAlchemy 2.0 models, Alembic migrations, queries | Skips migrations or uses raw SQL |
-| **qa-engineer** | pytest + httpx tests, runs them, fixes failures | Mocks the database |
-| **pr-creator** | Feature branch, structured commit, GitHub PR | Touches `main` or stages unrelated files |
-| **auth-engineer** | JWT, OAuth2, bcrypt, `get_current_user` dependency | Hardcodes secrets or uses sha256 for passwords |
-| **code-reviewer** | Architecture, async correctness, N+1 detection | Modifies code — audits only |
-| **migration-manager** | Alembic history, rollback safety, conflict resolution | Runs migrations blind or deletes applied ones |
-| **api-docs-engineer** | OpenAPI descriptions, examples, Postman export | Changes business logic |
-| **security-engineer** | OWASP Top 10, secrets, broken auth, injection | Reports false positives |
-| **performance-engineer** | N+1 queries, missing indexes, caching, pagination | Optimizes prematurely |
+11 agents. Each one knows exactly what it owns and what it doesn't touch.
 
-Agents read your project before acting. They follow your conventions — your folder structure, your naming, your base classes.
+```
+┌──────────────────────┬────────────────────────────────────┬────────────────────────────────────────┐
+│ Agent                │ Owns                               │ Never                                  │
+├──────────────────────┼────────────────────────────────────┼────────────────────────────────────────┤
+│ orchestrator         │ Intent → plan → delegation         │ Writes code                            │
+│ backend-engineer     │ Routes, schemas, service logic     │ Puts logic in routers                  │
+│ db-engineer          │ Models, migrations, queries        │ Skips migrations or uses raw SQL       │
+│ qa-engineer          │ Tests, test runner, failure fixes  │ Mocks the database                     │
+│ pr-creator           │ Branch, commit, GitHub PR          │ Touches main or stages unrelated files │
+│ auth-engineer        │ JWT, OAuth2, bcrypt, route guards  │ Hardcodes secrets or uses sha256       │
+│ code-reviewer        │ Architecture, N+1, async issues    │ Modifies code — audits only            │
+│ migration-manager    │ Alembic history, rollback, merges  │ Runs migrations blind                  │
+│ api-docs-engineer    │ OpenAPI, examples, Postman export  │ Changes business logic                 │
+│ security-engineer    │ OWASP Top 10, secrets, injection   │ Reports false positives                │
+│ performance-engineer │ N+1 queries, indexes, caching      │ Optimizes prematurely                  │
+└──────────────────────┴────────────────────────────────────┴────────────────────────────────────────┘
+```
+
+→ [Full agent reference](agents/README.md)
 
 ---
 
 ## Skills
 
-| Skill | Agents it runs | When to use |
-|---|---|---|
-| `/orchestrate` | orchestrator → full chain | Build any new feature end-to-end |
-| `/add-auth` | auth-engineer → qa-engineer → pr-creator | Add JWT auth to a project |
-| `/review-pr` | code-reviewer + security-engineer | Before opening a PR |
-| `/audit-security` | security-engineer | Full OWASP security scan |
-| `/optimize` | performance-engineer | Find N+1s, slow queries, missing indexes |
-| `/generate-docs` | api-docs-engineer | Enrich OpenAPI docs + export to Postman |
-| `/add-tests` | qa-engineer | Write tests for existing untested endpoints |
+7 slash commands that chain agents into complete workflows.
+
+```
+┌──────────────────┬────────────────────────────────────┬────────────────────────────────────────┐
+│ Skill            │ Agents it runs                     │ When to use                            │
+├──────────────────┼────────────────────────────────────┼────────────────────────────────────────┤
+│ /orchestrate     │ Full chain                         │ Build any new feature end-to-end       │
+│ /add-auth        │ auth-engineer → qa → pr-creator    │ Add JWT auth to a project              │
+│ /review-pr       │ code-reviewer + security-engineer  │ Before opening any PR                  │
+│ /audit-security  │ security-engineer                  │ Full OWASP security scan               │
+│ /optimize        │ performance-engineer               │ Find N+1s, slow queries, indexes       │
+│ /generate-docs   │ api-docs-engineer                  │ Enrich OpenAPI + export Postman        │
+│ /add-tests       │ qa-engineer                        │ Tests for existing untested endpoints  │
+└──────────────────┴────────────────────────────────────┴────────────────────────────────────────┘
+```
+
+→ [Full skill reference](skills/README.md)
 
 ---
 
 ## Workflows
 
-**Ship a new resource**
+**Ship a new feature**
 ```
-/orchestrate Add a products endpoint with title, price, and category
+/orchestrate Add a [resource] with [fields and relationships]
 /orchestrate Add a follow system — users can follow each other
-/orchestrate Add soft delete to the posts table with a deleted_at column
+/orchestrate Add soft delete to posts with a deleted_at column
+/orchestrate Add a Stripe webhook endpoint for payment events
 ```
 
-**Secure an existing project**
+**Secure a project**
 ```
 /add-auth
 /audit-security
@@ -132,24 +171,16 @@ Agents read your project before acting. They follow your conventions — your fo
 /review-pr
 ```
 
-**Optimize a slow endpoint**
+**Performance pass**
 ```
-/optimize The GET /posts endpoint is slow — find out why
-```
-
-**Catch up on docs**
-```
-/generate-docs
+/optimize
 ```
 
-**Add tests to legacy code**
-```
-/add-tests Write tests for everything in app/routers/ that has no test file
-```
+→ [See full examples](examples/)
 
 ---
 
-## What it expects from your project
+## What it expects
 
 ```
 your-project/
@@ -159,13 +190,12 @@ your-project/
 │   ├── services/
 │   ├── schemas/
 │   ├── models/
-│   └── db/
-│       └── session.py    ← AsyncSession, Base, get_db
+│   └── db/session.py     ← AsyncSession, Base, get_db
 └── tests/
-    └── conftest.py       ← test DB + AsyncClient fixtures
+    └── conftest.py        ← test DB + AsyncClient fixtures
 ```
 
-Agents read your structure first. If yours differs, they adapt.
+Agents read your structure first and adapt to it.
 
 ---
 
@@ -173,9 +203,9 @@ Agents read your structure first. If yours differs, they adapt.
 
 Raw prompting gives you code. This gives you **disciplined code**.
 
-Every agent operates under hard constraints — not guidelines, not suggestions. The `qa-engineer` runs `pytest` and fixes failures before handing off. It will not pass broken tests. The `db-engineer` runs the Alembic migration every time. The `security-engineer` never touches code — it audits and reports with severity levels.
+Every agent runs under hard constraints — not guidelines. The `qa-engineer` runs `pytest` and fixes failures before handing off. The `security-engineer` classifies every finding as Critical / High / Medium / Low and never touches your code. The `orchestrator` reads your entire codebase before planning anything, so agents follow your patterns, not a generic template.
 
-The orchestrator reads your codebase before planning anything, so agents follow your patterns, not a generic template. The result lands as a reviewable PR with a structured description — not a code dump in the chat window.
+The result is a reviewable PR — not a code dump in the chat window.
 
 ---
 
@@ -183,9 +213,9 @@ The orchestrator reads your codebase before planning anything, so agents follow 
 
 | Agent / Skill | Description |
 |---|---|
-| `celery-engineer` | Background tasks, beat scheduler, task retry config |
+| `celery-engineer` | Background tasks, beat scheduler, retry config |
 | `websocket-engineer` | WebSocket endpoints, connection managers, broadcast |
-| `deployment-engineer` | Dockerfile, docker-compose, env config, health checks |
+| `deployment-engineer` | Dockerfile, docker-compose, health checks |
 | `rate-limit-engineer` | slowapi integration, per-route limits, Redis backend |
 | `/scaffold` | Bootstrap a new FastAPI project with full structure |
 | `/add-pagination` | Add limit/offset pagination to existing endpoints |
@@ -194,11 +224,11 @@ The orchestrator reads your codebase before planning anything, so agents follow 
 
 ## Contributing
 
-Each agent is a single markdown file in `.claude/agents/`. The format is simple — name, description, tools, system prompt with rules.
+Each agent is a single markdown file. Adding a new specialist takes minutes.
 
-**Request a new agent:** open an issue using the [agent request template](https://github.com/uzairkhatri/fastapi-ai-team/issues/new?template=new-agent-request.yml). The best requests define what the agent must *never* do as clearly as what it does.
+**Request an agent** → [open an issue](https://github.com/uzairkhatri/fastapi-ai-team/issues/new?template=new-agent-request.yml)
 
-**Submit an agent:** use `backend-engineer.md` as your reference. PRs with clear ownership boundaries and hard rules get merged fast.
+**Submit an agent** → use `backend-engineer.md` as your template. Define what it owns and what it must never do.
 
 ---
 
@@ -212,6 +242,6 @@ MIT
 
 Built for [Claude Code](https://claude.ai/code) and [Cursor](https://cursor.sh) · Made by [@uzairkhatri](https://github.com/uzairkhatri)
 
-If this saved you time — star it ⭐
+**If this saved you time — star it ⭐**
 
 </div>
