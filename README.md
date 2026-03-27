@@ -1,185 +1,233 @@
 <div align="center">
 
-# 🚀 FastAPI AI Team
+# FastAPI AI Team
 
-### Your AI-powered engineering team for FastAPI — inside Claude Code.
-
-**One sentence. Full feature. PR opened.**
+**5 specialized AI agents. 1 command. Endpoint → DB → Tests → PR.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Built%20for-Claude%20Code-blue)](https://claude.ai/code)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/uzairkhatri/fastapi-ai-team/pulls)
-[![Agents](https://img.shields.io/badge/Agents-5-orange)](https://github.com/uzairkhatri/fastapi-ai-team/tree/main/.claude/agents)
+[![Built for Claude Code](https://img.shields.io/badge/Built%20for-Claude%20Code-5C4EE5)](https://claude.ai/code)
+[![Agents](https://img.shields.io/badge/Agents-11-orange)](#the-team)
+[![Skills](https://img.shields.io/badge/Skills-7-blue)](#usage)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/uzairkhatri/fastapi-ai-team/pulls)
 
 </div>
 
 ---
 
-> **Stop writing boilerplate. Start shipping features.**
->
-> FastAPI AI Team is a squad of specialized Claude Code agents that work together — each with strict rules, defined responsibilities, and no tolerance for shortcuts. Describe what you want to build. They figure out the rest.
+You know the drill. You have a feature to ship. You spend the first hour on boilerplate — the router, the schema, the service, the model, the migration, the tests, the PR description. None of it is hard. All of it takes time.
+
+**FastAPI AI Team eliminates that hour.**
+
+Drop it into any FastAPI project. Describe what you want to build. A team of specialized agents — each with strict rules and real discipline — builds the whole thing and opens the PR.
 
 ---
 
-## ⚡ See it in action
+## The pitch
 
+**Without this:**
+```
+You → write router → write schema → write service → write model
+    → run alembic → write tests → debug tests → open PR → write PR description
+Time: 45–90 minutes of setup before you write a single line of real logic
+```
+
+**With this:**
 ```
 /orchestrate Add a blog posts endpoint where users can create and list posts
+Time: you go get coffee
 ```
-
-```
-orchestrator   reading codebase... found app/routers, app/services, app/models
-orchestrator   plan: backend-engineer → db-engineer → qa-engineer → pr-creator
-
-backend-engineer   created app/schemas/post.py
-backend-engineer   created app/services/post_service.py
-backend-engineer   created app/routers/posts.py
-backend-engineer   registered router in main.py
-
-db-engineer    created app/models/post.py (Post, FK → users)
-db-engineer    ran: alembic revision --autogenerate -m "add posts table"
-
-qa-engineer    created tests/test_posts.py
-qa-engineer    running pytest... 3 passed in 0.07s
-
-pr-creator     branch: feat/blog-posts-endpoint
-pr-creator     PR opened: github.com/you/your-project/pull/42
-```
-
-**From one sentence to an open PR — endpoint, schema, migration, tests included.**
 
 ---
 
-## 🧠 The Team
+## See it happen
 
-| Agent | What they do | What they enforce |
+```
+$ /orchestrate Add a blog posts endpoint where users can create and list posts
+
+[orchestrator]      scanning project structure...
+[orchestrator]      found: app/routers, app/services, app/models, app/schemas
+[orchestrator]      plan: backend-engineer → db-engineer → qa-engineer → pr-creator
+
+[backend-engineer]  reading existing patterns from app/routers/users.py...
+[backend-engineer]  created app/schemas/post.py       — PostCreate, PostResponse
+[backend-engineer]  created app/services/post_service.py  — create_post, get_posts
+[backend-engineer]  created app/routers/posts.py      — POST /posts, GET /posts
+[backend-engineer]  updated app/main.py               — router registered
+
+[db-engineer]       created app/models/post.py        — Post model, FK → users (ondelete=CASCADE)
+[db-engineer]       ran alembic revision --autogenerate -m "add posts table"
+[db-engineer]       migration: versions/20240327_add_posts_table.py
+
+[qa-engineer]       created tests/test_posts.py
+[qa-engineer]       running pytest tests/test_posts.py -v...
+[qa-engineer]       test_create_post_returns_201 PASSED
+[qa-engineer]       test_create_post_missing_fields_returns_422 PASSED
+[qa-engineer]       test_create_post_user_not_found_returns_404 PASSED
+[qa-engineer]       3 passed in 0.07s
+
+[pr-creator]        branch: feat/blog-posts-endpoint
+[pr-creator]        commit: feat: add blog posts endpoint with full CRUD and tests
+[pr-creator]        PR opened → github.com/you/your-project/pull/42
+```
+
+---
+
+## The team
+
+Five agents. Each one knows exactly what it owns and what it doesn't touch.
+
+| Agent | Owns | Hard rules |
 |---|---|---|
-| **orchestrator** | Reads your codebase, plans the chain, delegates | Never acts — only coordinates |
-| **backend-engineer** | Routes, Pydantic schemas, service logic | No business logic in routers. Thin handlers only. |
-| **db-engineer** | SQLAlchemy 2.0 models, Alembic migrations, queries | Every FK has `ondelete`. Migration runs before finishing. |
-| **qa-engineer** | pytest + httpx tests, runs them, fixes failures | Never mocks the DB. Tests 201, 422, 404, and edge cases. |
-| **pr-creator** | Branch, commit, GitHub PR | Never touches `main`. Structured PR description every time. |
+| **orchestrator** | Intent → plan → delegation | Never writes code. Only coordinates. |
+| **backend-engineer** | Routes, schemas, service logic | No business logic in routers. All I/O is async. Never duplicates existing files. |
+| **db-engineer** | SQLAlchemy models, migrations, queries | SQLAlchemy 2.0 style only. Runs migration before finishing. Every FK has explicit `ondelete`. |
+| **qa-engineer** | Tests, test runner, failure fixes | Real test DB — never mocks. Runs pytest and fixes failures before handing off. Tests 201, 422, 404, and edge cases. |
+| **pr-creator** | Branch, commit, PR | Never touches `main`. Never stages unrelated files. Structured PR description every time. |
+| **auth-engineer** | JWT auth, OAuth2, protected routes | bcrypt only. Secrets from env. `get_current_user` dependency pattern always. |
+| **code-reviewer** | Architecture, async correctness, N+1, security | Read-only. Separates blockers from suggestions. Never vague. |
+| **migration-manager** | Alembic history, rollbacks, conflict resolution | Never runs blind. Warns on data loss. Resolves multiple heads with merge. |
+| **api-docs-engineer** | OpenAPI descriptions, examples, Postman export | Never changes logic. Realistic examples only. Covers all status codes. |
+| **security-engineer** | OWASP Top 10 audit, secrets, broken auth, injection | Read-only. Classifies Critical / High / Medium / Low. No false positives. |
+| **performance-engineer** | N+1 queries, missing indexes, caching, pagination | Explains the problem before the fix. Only addresses real bottlenecks. |
 
-The orchestrator skips agents that aren't needed. No DB changes? `db-engineer` is not called.
+The orchestrator reads your codebase before planning anything. Agents follow your existing conventions — your folder layout, your naming, your base classes. They adapt to you, not the other way around.
 
 ---
 
-## 📦 Install
+## Install
 
 ```bash
-# In your FastAPI project root
 git clone https://github.com/uzairkhatri/fastapi-ai-team /tmp/fastapi-ai-team
 mkdir -p .claude/agents .claude/skills
 cp /tmp/fastapi-ai-team/.claude/agents/* .claude/agents/
 cp /tmp/fastapi-ai-team/.claude/skills/* .claude/skills/
 ```
 
-> Requires [Claude Code](https://claude.ai/code) CLI.
+Requires [Claude Code](https://claude.ai/code). That's the only dependency.
 
 ---
 
-## 🛠 Usage
+## Usage
 
-### End-to-end feature
+### Ship a feature end-to-end
 
 ```
 /orchestrate Add JWT authentication with login and register endpoints
+/orchestrate Add soft delete to users with a deleted_at column
+/orchestrate Add a notifications system — users get notified when someone comments on their post
+/orchestrate Add rate limiting to the public endpoints
 ```
 
-```
-/orchestrate Add a comments system where users can comment on posts
-```
+### Use individual agents for focused tasks
 
-```
-/orchestrate Add soft delete to the users table with a deleted_at column
-```
-
-### Individual agents
-
-You can also call any agent directly for focused tasks:
+Not every task needs the full chain. Call any agent directly:
 
 ```
 Use the backend-engineer agent to add a PATCH /users/{id} endpoint
-```
-
-```
 Use the qa-engineer agent to write tests for the existing /posts endpoint
-```
-
-```
-Use the db-engineer agent to add an index on posts.user_id
+Use the db-engineer agent to add a composite index on (user_id, created_at)
+Use the pr-creator agent to open a PR for the changes I just made
 ```
 
 ---
 
-## 📐 What this expects from your project
+## Real workflows
+
+**Shipping a new resource (most common)**
+```
+/orchestrate Add [resource] with [fields/relationships]
+```
+Runs the full chain: router → schema → service → model → migration → tests → PR.
+
+**Adding auth to an existing project**
+```
+/orchestrate Add JWT authentication — login returns a token, protect the /posts endpoints
+```
+
+**Iterating on an existing endpoint**
+```
+Use the backend-engineer agent to add pagination to GET /posts — use limit and offset query params
+Use the qa-engineer agent to update tests/test_posts.py to cover the new pagination params
+```
+
+---
+
+## What it expects from your project
 
 ```
 your-project/
 ├── app/
 │   ├── main.py
-│   ├── routers/        ← thin handlers only
+│   ├── routers/        ← agents put route handlers here
 │   ├── services/       ← business logic lives here
-│   ├── schemas/        ← Pydantic models
-│   ├── models/         ← SQLAlchemy models
+│   ├── schemas/        ← Pydantic models here
+│   ├── models/         ← SQLAlchemy models here
 │   └── db/
-│       └── session.py  ← AsyncSession + Base
+│       └── session.py  ← AsyncSession, Base, get_db
 └── tests/
     └── conftest.py     ← test DB + AsyncClient fixtures
 ```
 
-Agents read your project first. If your layout differs, they follow your conventions — not ours.
+If your structure differs, the orchestrator reads it first and adapts. The agents are not template-runners — they read before they write.
 
 ---
 
-## 🔍 Why this is different from just prompting Claude
+## Why not just prompt Claude directly?
 
-Raw prompting gets you working code. This gets you **consistent, production-disciplined code.**
+You can. But raw prompting has no discipline.
 
-Every agent has hard rules — not suggestions:
+This system has hard rules baked into each agent's definition. The `qa-engineer` **will not** pass broken tests to `pr-creator`. The `db-engineer` **will not** skip the migration. The `backend-engineer` **will not** put logic in the router. These aren't suggestions — they're constraints the agent operates under on every run.
 
-- **backend-engineer** will never put business logic in a router. If it sees it elsewhere in your project, it will note it but not touch it.
-- **db-engineer** will run the migration before it finishes. Always.
-- **qa-engineer** runs `pytest` and fixes failures before handing off. It won't pass broken tests to `pr-creator`.
-- **pr-creator** will never commit unrelated files, never force push, and never touch `main`.
-
-The orchestrator reads your codebase before doing anything — so agents follow your existing patterns, not a generic template.
+The result is code that follows your project's conventions, is tested before it's committed, and arrives as a reviewable PR — not a code dump in the chat window.
 
 ---
 
-## 🗺 Roadmap
+## Skills (slash commands)
 
-| Agent / Skill | Description | Status |
+| Skill | What it runs | Use it when |
 |---|---|---|
-| `auth-engineer` | JWT auth, OAuth2 password flow, protected routes | Planned |
-| `code-reviewer` | Architecture enforcement, async correctness, N+1 detection | Planned |
-| `migration-manager` | Alembic history, rollback detection, conflict resolution | Planned |
-| `api-docs-generator` | OpenAPI descriptions, example payloads, Postman export | Planned |
-| `/add-auth` | Add authentication to an existing endpoint | Planned |
-| `/review-pr` | Review an open PR against FastAPI best practices | Planned |
+| `/orchestrate` | Full agent chain | Building a new feature end-to-end |
+| `/add-auth` | auth-engineer → qa-engineer → pr-creator | Adding JWT auth to a project |
+| `/review-pr` | code-reviewer + security-engineer | Before opening a PR |
+| `/audit-security` | security-engineer | Full OWASP security scan |
+| `/optimize` | performance-engineer | Finding N+1s, slow queries, missing indexes |
+| `/generate-docs` | api-docs-engineer | Enriching OpenAPI docs + Postman export |
+| `/add-tests` | qa-engineer | Writing tests for existing untested endpoints |
 
 ---
 
-## 🤝 Contributing
+## Roadmap
 
-Agents are just markdown files with a system prompt and rules. Adding a new specialist is straightforward — use `.claude/agents/backend-engineer.md` as your template.
-
-**To request a new agent:** open an issue with the title `[agent request] <name>` and describe what it should do and enforce.
-
-PRs welcome.
+| | Description |
+|---|---|
+| 🔜 | `deployment-engineer` — Dockerfile, docker-compose, environment config |
+| 🔜 | `celery-engineer` — Background tasks, task queues, beat scheduler |
+| 🔜 | `websocket-engineer` — WebSocket endpoints, connection managers, broadcast |
+| 🔜 | `/scaffold` — Bootstrap a new FastAPI project with full structure |
+| 🔜 | `/add-pagination` — Add limit/offset or keyset pagination to existing endpoints |
 
 ---
 
-## 📄 License
+## Contributing
 
-MIT — use it, fork it, extend it.
+Each agent is a single markdown file in `.claude/agents/`. The format is straightforward — a name, a description, tools it can use, and a system prompt with rules.
+
+**To request a new agent:** open an issue titled `[agent request] name — what it owns and what it enforces`. The best agent requests define what the agent is *not* allowed to do as clearly as what it does.
+
+**To submit an agent:** use `backend-engineer.md` as your template. PRs with new agents that have clear ownership boundaries and hard rules will be merged fast.
+
+---
+
+## License
+
+MIT
 
 ---
 
 <div align="center">
 
-Built for [Claude Code](https://claude.ai/code) · Made by [@uzairkhatri](https://github.com/uzairkhatri)
+Made by [@uzairkhatri](https://github.com/uzairkhatri) · Built for [Claude Code](https://claude.ai/code)
 
-**If this saved you time, star it. ⭐**
+If this saved you an hour, star it ⭐
 
 </div>
