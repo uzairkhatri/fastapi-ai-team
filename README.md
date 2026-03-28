@@ -1,33 +1,49 @@
 <div align="center">
 
-```
-███████╗ █████╗ ███████╗████████╗ █████╗ ██████╗ ██╗      █████╗ ██╗
-██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██║     ██╔══██╗██║
-█████╗  ███████║███████╗   ██║   ███████║██████╔╝██║     ███████║██║
-██╔══╝  ██╔══██║╚════██║   ██║   ██╔══██║██╔═══╝ ██║     ██╔══██║██║
-██║     ██║  ██║███████║   ██║   ██║  ██║██║     ██║     ██║  ██║██║
-╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝
+![FastAPI AI Team](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=FastAPI%20AI%20Team&fontSize=60&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Your%20AI-powered%20FastAPI%20engineering%20team&descAlignY=58&descSize=20)
 
-          █████╗ ██╗    ████████╗███████╗ █████╗ ███╗   ███╗
-         ██╔══██╗██║    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
-         ███████║██║       ██║   █████╗  ███████║██╔████╔██║
-         ██╔══██║██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
-         ██║  ██║██║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
-         ╚═╝  ╚═╝╚═╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
-```
-
-### Your AI-powered FastAPI engineering team — inside Claude Code and Cursor
-
+[![GitHub stars](https://img.shields.io/github/stars/uzairkhatri/fastapi-ai-team?style=social)](https://github.com/uzairkhatri/fastapi-ai-team/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/uzairkhatri/fastapi-ai-team?style=flat)](https://github.com/uzairkhatri/fastapi-ai-team/network/members)
+[![GitHub contributors](https://img.shields.io/github/contributors/uzairkhatri/fastapi-ai-team?style=flat)](https://github.com/uzairkhatri/fastapi-ai-team/graphs/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/uzairkhatri/fastapi-ai-team)](https://github.com/uzairkhatri/fastapi-ai-team/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-5C4EE5?logo=anthropic)](https://claude.ai/code)
 [![Cursor](https://img.shields.io/badge/Cursor-supported-black?logo=cursor)](https://cursor.sh)
-[![Agents](https://img.shields.io/badge/Agents-11-orange)](#the-team)
-[![Skills](https://img.shields.io/badge/Skills-7-blue)](#skills)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/uzairkhatri/fastapi-ai-team/issues/new?template=new-agent-request.yml)
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github)](https://github.com/sponsors/uzairkhatri)
+
+![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/-FastAPI-009688?logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-D71F00?logoColor=white)
+![Alembic](https://img.shields.io/badge/-Alembic-6BA81E?logoColor=white)
+
+> **11 agents · 7 skills · One sentence to a production-ready PR**
 
 </div>
 
 ---
+
+## Contents
+
+- [What it does](#what-it-does)
+- [Install](#install)
+- [See it run](#see-it-run)
+- [The team](#the-team)
+- [Skills](#skills)
+- [Scenarios](#scenarios)
+- [Workflows](#workflows)
+- [Stats](#stats)
+- [Why not just ask Claude directly?](#why-not-just-ask-claude-directly)
+- [What it expects](#what-it-expects)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Changelog](#changelog)
+- [License](#license)
+
+---
+
+## What it does
 
 <div align="center">
 
@@ -66,6 +82,15 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/main/scripts/install.sh) --cursor
 ```
 
+### Supported tools
+
+| Tool | Status | Installs to |
+|------|--------|-------------|
+| Claude Code | ✅ Supported | `~/.claude/agents/` + `~/.claude/commands/` |
+| Cursor | ✅ Supported | `.cursor/rules/` |
+| Windsurf | Planned | — |
+| OpenCode | Planned | — |
+
 ---
 
 ## See it run
@@ -100,6 +125,8 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 [pr-creator]          PR opened → github.com/you/your-project/pull/17 ✓
 ```
 
+> **Want to see a real run?** Drop a screen recording in [Discussions](https://github.com/uzairkhatri/fastapi-ai-team/discussions) and we'll feature it here.
+
 ---
 
 ## The team
@@ -124,6 +151,20 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 └──────────────────────┴────────────────────────────────────┴────────────────────────────────────────┘
 ```
 
+### In their own words
+
+> *"I read your entire codebase before writing a single line. Your patterns, not mine."*
+> — **orchestrator**
+
+> *"I run pytest and fix failures before I hand off. You never see a broken test."*
+> — **qa-engineer**
+
+> *"I audit only. I touch nothing. Every finding is classified Critical / High / Medium / Low."*
+> — **security-engineer**
+
+> *"I open the PR on a clean branch. I never touch main."*
+> — **pr-creator**
+
 → [Full agent reference](agents/README.md)
 
 ---
@@ -147,6 +188,43 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 ```
 
 → [Full skill reference](skills/README.md)
+
+---
+
+## Scenarios
+
+### Ship a feature end-to-end
+```
+/orchestrate Add a follow system — users can follow each other
+```
+`orchestrator` reads your project, plans the chain. `backend-engineer` writes routes + service. `db-engineer` creates the model and migration. `qa-engineer` writes and runs tests. `pr-creator` opens the PR. One command.
+
+---
+
+### Add auth to an existing project
+```
+/add-auth
+/audit-security
+```
+`auth-engineer` adds JWT routes, bcrypt hashing, and route guards. `security-engineer` audits for hardcoded secrets, missing rate limits, and OWASP Top 10 issues. `qa-engineer` writes auth tests. PR opened.
+
+---
+
+### Harden before going live
+```
+/audit-security
+/review-pr
+/optimize
+```
+Full OWASP scan → architecture review → N+1 and index analysis. Three agents, zero code touched without your approval.
+
+---
+
+### Fix slow endpoints
+```
+/optimize
+```
+`performance-engineer` finds N+1 queries, missing indexes, unneeded eager loading, and missing caching opportunities. Prioritized report, no auto-changes.
 
 ---
 
@@ -180,6 +258,32 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 
 ---
 
+## Stats
+
+- **11 agents** — each with hard constraints, not guidelines
+- **7 skills** — multi-agent workflows triggered by a single command
+- **0 lines** written before reading your project structure
+- **100%** of PRs opened from a clean branch, never touching main
+- **1 command** from feature request to merged PR
+
+---
+
+## Why not just ask Claude directly?
+
+| | Raw prompting | fastapi-ai-team |
+|---|---|---|
+| Reads your project structure first | ❌ Guesses | ✅ Always |
+| Tests actually run | ❌ Sometimes | ✅ pytest runs; failures fixed before handoff |
+| PR opened automatically | ❌ No | ✅ Branch + commit + PR |
+| Agents stay in their lane | ❌ No | ✅ Hard constraints, not guidelines |
+| Output is reviewable | ❌ Chat window dump | ✅ PR diff |
+| Migration generated | ❌ Often forgotten | ✅ Alembic autogenerate, every time |
+| Security checked before merge | ❌ Manual | ✅ `security-engineer` classifies every finding |
+
+The result is a reviewable PR — not a code dump in the chat window.
+
+---
+
 ## What it expects
 
 ```
@@ -199,17 +303,9 @@ Agents read your structure first and adapt to it.
 
 ---
 
-## Why not just prompt Claude?
-
-Raw prompting gives you code. This gives you **disciplined code**.
-
-Every agent runs under hard constraints — not guidelines. The `qa-engineer` runs `pytest` and fixes failures before handing off. The `security-engineer` classifies every finding as Critical / High / Medium / Low and never touches your code. The `orchestrator` reads your entire codebase before planning anything, so agents follow your patterns, not a generic template.
-
-The result is a reviewable PR — not a code dump in the chat window.
-
----
-
 ## Roadmap
+
+Help us build these — [vote on what ships next](https://github.com/uzairkhatri/fastapi-ai-team/discussions).
 
 | Agent / Skill | Description |
 |---|---|
@@ -230,18 +326,39 @@ Each agent is a single markdown file. Adding a new specialist takes minutes.
 
 **Submit an agent** → use `backend-engineer.md` as your template. Define what it owns and what it must never do.
 
+**Discuss** → [GitHub Discussions](https://github.com/uzairkhatri/fastapi-ai-team/discussions) — share what you've built, request workflows, ask questions.
+
+---
+
+## Changelog
+
+### v1.1.0
+- Added `auth-engineer`, `code-reviewer`, `migration-manager`, `api-docs-engineer`, `security-engineer`, `performance-engineer`
+- Added `/add-auth`, `/review-pr`, `/audit-security`, `/optimize`, `/generate-docs`, `/add-tests` skills
+- Added Cursor support + install script
+
+### v1.0.0
+- Initial release: `orchestrator`, `backend-engineer`, `db-engineer`, `qa-engineer`, `pr-creator`
+- `/orchestrate` skill
+
 ---
 
 ## License
 
-MIT
+MIT — use freely, modify as needed, contribute back if you can.
 
 ---
 
 <div align="center">
 
-Built for [Claude Code](https://claude.ai/code) and [Cursor](https://cursor.sh) · Made by [@uzairkhatri](https://github.com/uzairkhatri)
+**FastAPI AI Team — your AI-powered engineering crew, built for Claude Code and Cursor**
 
-**If this saved you time — star it ⭐**
+[⭐ Star this repo](https://github.com/uzairkhatri/fastapi-ai-team) • [🍴 Fork it](https://github.com/uzairkhatri/fastapi-ai-team/fork) • [💬 Discuss](https://github.com/uzairkhatri/fastapi-ai-team/discussions) • [🐛 Report an issue](https://github.com/uzairkhatri/fastapi-ai-team/issues) • [🙋 Request an agent](https://github.com/uzairkhatri/fastapi-ai-team/issues/new)
+
+**Liked it?** [Share on X](https://twitter.com/intent/tweet?text=I%20just%20found%20fastapi-ai-team%20%E2%80%94%20an%20AI-powered%20FastAPI%20engineering%20team%20inside%20Claude%20Code.%20One%20command%20ships%20a%20full%20endpoint%20with%20tests%20and%20a%20PR.%20https%3A%2F%2Fgithub.com%2Fuzairkhatri%2Ffastapi-ai-team)
+
+Made by [@uzairkhatri](https://github.com/uzairkhatri) · If this saved you time, a star goes a long way.
+
+![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer)
 
 </div>

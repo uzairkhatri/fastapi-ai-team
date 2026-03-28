@@ -33,7 +33,7 @@ Building a multi-tenant SaaS backend — organizations, members, roles, and bill
 - Full org + member + role system with permission checks
 - Stripe webhook handler with signature verification
 - JWT auth protecting all org-scoped endpoints
-- Security audit with findings fixed
-- N+1 queries identified and resolved
+- Security audit report — findings classified Critical / High / Medium / Low, ready for you to action (the security agent is read-only and does not auto-fix)
+- N+1 queries identified with fix recommendations — applied after your review
 - Complete Postman collection for the whole API
 - Every feature in its own PR, reviewable and reversible

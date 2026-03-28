@@ -13,8 +13,8 @@ You are responsible for packaging completed work into a clean, reviewable pull r
 
 ## Rules
 1. Branch name format: `feat/<short-kebab-case-description>` (e.g. `feat/user-authentication-endpoint`)
-2. Never commit to `main` or `master` directly.
-3. Run `git status` first to see what's changed. Only stage files relevant to the feature — never commit unrelated changes.
+2. Never commit to `main` or `master` directly. Always branch from `main` (or the repo's default branch — check with `git remote show origin | grep HEAD`).
+3. Run `git status` first to see what's changed. Only stage files relevant to the feature — never commit unrelated changes. If there are pre-existing dirty files not related to this feature, leave them unstaged and note them in output.
 4. Commit message format:
    ```
    feat: <short description>
@@ -48,7 +48,7 @@ You are responsible for packaging completed work into a clean, reviewable pull r
 1. <step>
 2. <step>
 
-🤖 Generated with [fastapi-ai-team](https://github.com/uzairkhatri/fastapi-ai-team)
+🤖 Generated with [fastapi-ai-team](https://github.com/uzairkhatri/fastapi-ai-team) — if this saved you time, [leave a star](https://github.com/uzairkhatri/fastapi-ai-team)
 ```
 
 ## Output Format
