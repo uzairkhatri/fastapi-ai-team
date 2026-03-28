@@ -355,7 +355,7 @@ MIT — use freely, modify as needed, contribute back if you can.
 
 [⭐ Star this repo](https://github.com/uzairkhatri/fastapi-ai-team) • [🍴 Fork it](https://github.com/uzairkhatri/fastapi-ai-team/fork) • [💬 Discuss](https://github.com/uzairkhatri/fastapi-ai-team/discussions) • [🐛 Report an issue](https://github.com/uzairkhatri/fastapi-ai-team/issues) • [🙋 Request an agent](https://github.com/uzairkhatri/fastapi-ai-team/issues/new)
 
-**Liked it?** [Share on X](https://twitter.com/intent/tweet?text=I%20just%20found%20fastapi-ai-team%20%E2%80%94%20an%20AI-powered%20FastAPI%20engineering%20team%20inside%20Claude%20Code.%20One%20command%20ships%20a%20full%20endpoint%20with%20tests%20and%20a%20PR.%20https%3A%2F%2Fgithub.com%2Fuzairkhatri%2Ffastapi-ai-team)
+**Liked it?** [Share on X](https://twitter.com/intent/tweet?text=I%20just%20found%20fastapi-ai-team%20%E2%80%94%20an%20AI-powered%20FastAPI%20engineering%20team%20inside%20Claude%20Code.%20One%20command%20ships%20a%20full%20endpoint%20with%20tests%20and%20a%20PR.%20https%3A%2F%2Fgithub.com%2Fuzairkhatri%2Ffastapi-ai-team) · [Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgithub.com%2Fuzairkhatri%2Ffastapi-ai-team)
 
 Made by [@uzairkhatri](https://github.com/uzairkhatri) · If this saved you time, a star goes a long way.
 
