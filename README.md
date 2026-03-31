@@ -40,6 +40,8 @@
 - [Contributing](#contributing)
 - [Changelog](#changelog)
 - [License](#license)
+- [Catalog](CATALOG.md)
+- [Security](SECURITY.md)
 
 ---
 
@@ -324,7 +326,7 @@ Each agent is a single markdown file. Adding a new specialist takes minutes.
 
 **Request an agent** → [open an issue](https://github.com/uzairkhatri/fastapi-ai-team/issues/new?template=new-agent-request.yml)
 
-**Submit an agent** → use `backend-engineer.md` as your template. Define what it owns and what it must never do.
+**Submit an agent** → use `backend-engineer.md` as your template. Define what it owns and what it must never do. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 **Discuss** → [GitHub Discussions](https://github.com/uzairkhatri/fastapi-ai-team/discussions) — share what you've built, request workflows, ask questions.
 
