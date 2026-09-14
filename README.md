@@ -18,9 +18,15 @@
 ![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-D71F00?logoColor=white)
 ![Alembic](https://img.shields.io/badge/-Alembic-6BA81E?logoColor=white)
 
-> **11 agents · 7 skills · One sentence to a production-ready PR**
+> **11 agents · 7 skills · One sentence from requirement to a reviewable PR**
 
 </div>
+
+FastAPI AI Team is an experiment in **bounded AI engineering workflows**: specialist agents read the repository, stay inside explicit responsibilities, run verification steps, and hand work off through a defined delivery chain.
+
+The goal is not unrestricted autonomy. The goal is to make AI-assisted backend engineering **repeatable, inspectable, and easier for a human engineer to review**.
+
+**Built by [Uzair Khatri](https://uzairkhatri.com) · Production AI Systems Architect**
 
 ---
 
@@ -158,13 +164,13 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 > *"I read your entire codebase before writing a single line. Your patterns, not mine."*
 > — **orchestrator**
 
-> *"I run pytest and fix failures before I hand off. You never see a broken test."*
+> *"I run the relevant test workflow before handoff and surface failures for review."*
 > — **qa-engineer**
 
 > *"I audit only. I touch nothing. Every finding is classified Critical / High / Medium / Low."*
 > — **security-engineer**
 
-> *"I open the PR on a clean branch. I never touch main."*
+> *"I prepare work on a dedicated branch and hand it off as a reviewable PR."*
 > — **pr-creator**
 
 → [Full agent reference](agents/README.md)
@@ -260,13 +266,15 @@ Full OWASP scan → architecture review → N+1 and index analysis. Three agents
 
 ---
 
-## Stats
+## Design principles
 
-- **11 agents** — each with hard constraints, not guidelines
-- **7 skills** — multi-agent workflows triggered by a single command
-- **0 lines** written before reading your project structure
-- **100%** of PRs opened from a clean branch, never touching main
-- **1 command** from feature request to merged PR
+- **11 specialist agents** — responsibilities and boundaries are explicit
+- **7 skills** — reusable workflows for common engineering tasks
+- **Repository context first** — agents are instructed to inspect project structure and existing patterns before implementation
+- **Verification before handoff** — testing and review are part of the workflow rather than an afterthought
+- **Reviewable delivery** — the target artifact is a branch/PR that a human engineer can inspect
+
+> Agent output still requires human review. Results depend on the model, repository, tooling, permissions, and project-specific test coverage.
 
 ---
 
@@ -353,7 +361,7 @@ MIT — use freely, modify as needed, contribute back if you can.
 
 <div align="center">
 
-**FastAPI AI Team — your AI-powered engineering crew, built for Claude Code and Cursor**
+**FastAPI AI Team — bounded AI engineering workflows for FastAPI, built for Claude Code and Cursor**
 
 [⭐ Star this repo](https://github.com/uzairkhatri/fastapi-ai-team) • [🍴 Fork it](https://github.com/uzairkhatri/fastapi-ai-team/fork) • [💬 Discuss](https://github.com/uzairkhatri/fastapi-ai-team/discussions) • [🐛 Report an issue](https://github.com/uzairkhatri/fastapi-ai-team/issues) • [🙋 Request an agent](https://github.com/uzairkhatri/fastapi-ai-team/issues/new)
 
