@@ -22,7 +22,24 @@
 
 </div>
 
-FastAPI AI Team is an experiment in **bounded AI engineering workflows**: specialist agents read the repository, stay inside explicit responsibilities, run verification steps, and hand work off through a defined delivery chain.
+FastAPI AI Team is an experiment in **bounded AI engineering workflows**: specialist agents inspect repository context, stay inside explicit responsibilities, run verification steps, and hand work off through a defined delivery chain.
+
+### Architecture at a glance
+
+```text
+Requirement
+    │
+    ▼
+Orchestrator ── scope · repository context · delegation
+    │
+    ├──────────────┬──────────────┬──────────────┐
+    ▼              ▼              ▼              ▼
+Backend          Database        QA / Tests     Security / Review
+    └──────────────┴──────────────┴──────────────┘
+                           │
+                           ▼
+                     Reviewable PR
+```
 
 The goal is not unrestricted autonomy. The goal is to make AI-assisted backend engineering **repeatable, inspectable, and easier for a human engineer to review**.
 
@@ -39,7 +56,7 @@ The goal is not unrestricted autonomy. The goal is to make AI-assisted backend e
 - [Skills](#skills)
 - [Scenarios](#scenarios)
 - [Workflows](#workflows)
-- [Stats](#stats)
+- [Design principles](#design-principles)
 - [Why not just ask Claude directly?](#why-not-just-ask-claude-directly)
 - [What it expects](#what-it-expects)
 - [Roadmap](#roadmap)
@@ -133,7 +150,9 @@ bash <(curl -s https://raw.githubusercontent.com/uzairkhatri/fastapi-ai-team/mai
 [pr-creator]          PR opened → github.com/you/your-project/pull/17 ✓
 ```
 
-> **Want to see a real run?** Drop a screen recording in [Discussions](https://github.com/uzairkhatri/fastapi-ai-team/discussions) and we'll feature it here.
+> The transcript above is an **illustrative workflow example**, not a benchmark or guarantee. Actual output depends on the repository, model, permissions, tools and test coverage.
+
+For a concrete repository example, see the checked-in [examples](examples/) and agent/skill definitions.
 
 ---
 
@@ -282,13 +301,13 @@ Full OWASP scan → architecture review → N+1 and index analysis. Three agents
 
 | | Raw prompting | fastapi-ai-team |
 |---|---|---|
-| Reads your project structure first | ❌ Guesses | ✅ Always |
-| Tests actually run | ❌ Sometimes | ✅ pytest runs; failures fixed before handoff |
-| PR opened automatically | ❌ No | ✅ Branch + commit + PR |
-| Agents stay in their lane | ❌ No | ✅ Hard constraints, not guidelines |
-| Output is reviewable | ❌ Chat window dump | ✅ PR diff |
-| Migration generated | ❌ Often forgotten | ✅ Alembic autogenerate, every time |
-| Security checked before merge | ❌ Manual | ✅ `security-engineer` classifies every finding |
+| Repository context | Depends on the prompt | Explicitly required by the workflow |
+| Verification | Must be requested/managed | Verification is a defined handoff step |
+| PR workflow | Usually manual | Dedicated PR handoff role |
+| Responsibility boundaries | General-purpose | Specialist agent scopes |
+| Output target | Conversation/code | Reviewable repository change |
+| Database changes | Easy to omit | Dedicated DB/migration responsibilities |
+| Security review | Separate activity | Dedicated security-review workflow |
 
 The result is a reviewable PR — not a code dump in the chat window.
 
